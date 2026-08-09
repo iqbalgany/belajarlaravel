@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Page</title>
-</head>
+@section('title', $title)
 
-<body>
-    <h1>About Me</h1>
-    <p>I am a passionate developer who loves creating amazing web applications.</p>
-</body>
-
-</html>
+@section('content')
+    <p>This is about page</p>
+@endsection
