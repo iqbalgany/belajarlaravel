@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\models\Post;
-
-
+use App\Models\User;
 
 Route::get('/', function () {
     return view('home', ['title' => 'Home']);
@@ -23,6 +22,10 @@ Route::get('/posts', function () {
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
+});
+
+Route::get('/authors/{user}', function (User $user) {
+    return view('posts', ['title' => 'Article by' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/contact', function () {
