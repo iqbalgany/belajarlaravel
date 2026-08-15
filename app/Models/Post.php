@@ -12,8 +12,20 @@ class Post extends Model
 
     protected $fillable = ['title', 'author', 'slug', 'body'];
 
+    protected $with = ['author', 'category'];
+
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * Get the category that owns the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }
